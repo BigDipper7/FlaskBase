@@ -1,1 +1,35 @@
 admin-template.html
+
+{% if data %}
+	<style>
+	table, th, td {
+	    border: 1px solid black;
+	    border-collapse: collapse;
+	}
+	th, td {
+	    padding: 5px;
+	}
+	th {
+	    text-align: left;
+	}
+	</style>
+
+	<table  style="width:70%">
+		<tr>
+			<th>id</th>
+			<th>name</th>
+			<th>password</th>
+		</tr>
+	{% for item in data %}
+		<tr>
+			<td>{{ item.id }}</td>
+			<td>{{ item.name }}</td>
+			<td>{{ item.password }}</td>
+		</tr>
+	{% endfor %}
+	</table>
+{% else %}
+	<p>
+	No data!
+	</p>
+{% endif %}

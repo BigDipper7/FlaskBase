@@ -7,4 +7,7 @@ from flask import render_template
 
 @app.route('/hello', methods=['GET'])
 def getMainPage():
-	return render_template('admin/admin-template.html', data=None)
+	allAdmins = Admin.query.all()
+	for item in allAdmins:
+		print item.id, item.name, item.password
+	return render_template('admin/admin-template.html', data=allAdmins)
